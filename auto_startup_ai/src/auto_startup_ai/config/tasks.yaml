@@ -1,17 +1,119 @@
-research_task:
+trend_task:
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is {current_year}.
+    Identify top 5 emerging AI and sustainability trends
   expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
+    List of trends with confidence scores
+  agent: trend_agent
 
-reporting_task:
+market_task:
   description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Identify high-growth markets and competitor gaps
   expected_output: >
-    A fully fledged report with the main topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+    Detailed market research report
+  agent: market_agent
+  context:
+    - trend_task
+
+idea_task:
+  description: >
+    Generate 3 innovative startup ideas based on market research
+  expected_output: >
+    Detailed startup ideas
+  agent: idea_agent
+  context:
+    - market_task
+
+critic_task:
+  description: >
+    Evaluate the generated startup ideas
+  expected_output: >
+    Evaluation report and selected winning idea
+  agent: critic_agent
+  context:
+    - idea_task
+
+design_task:
+  description: >
+    Design an MVP for the winning startup idea
+  expected_output: >
+    Product specification document
+  agent: product_agent
+  context:
+    - critic_task
+
+marketing_task:
+  description: >
+    Create a go-to-market strategy for the MVP
+  expected_output: >
+    12-month marketing plan
+  agent: marketing_agent
+  context:
+    - design_task
+
+finance_task:
+  description: >
+    Generate financial projections and funding plans
+  expected_output: >
+    Startup financial model
+  agent: finance_agent
+  context:
+    - marketing_task
+
+architecture_task:
+  description: >
+    Design technical system architecture for the startup
+  expected_output: >
+    Technical architecture document
+  agent: tech_architect_agent
+  context:
+    - design_task
+    - finance_task
+
+code_task:
+  description: >
+    Generate the MVP code structure
+  expected_output: >
+    Repository structure and starter code
+  agent: code_agent
+  context:
+    - architecture_task
+
+website_task:
+  description: >
+    Generate landing page HTML and Tailwind CSS
+  expected_output: >
+    Landing page code
+  agent: website_agent
+  context:
+    - marketing_task
+  output_file: index.html
+
+pitch_task:
+  description: >
+    Create a 10-slide investor pitch deck
+  expected_output: >
+    Pitch deck outline and content
+  agent: pitch_agent
+  context:
+    - marketing_task
+    - finance_task
+
+final_task:
+  description: >
+    Compile all outputs into a complete startup blueprint
+  expected_output: >
+    Investor-ready startup report
+  agent: report_agent
+  output_file: research/startup_blueprint.md
+  context:
+    - trend_task
+    - market_task
+    - idea_task
+    - critic_task
+    - design_task
+    - marketing_task
+    - finance_task
+    - architecture_task
+    - code_task
+    - website_task
+    - pitch_task
