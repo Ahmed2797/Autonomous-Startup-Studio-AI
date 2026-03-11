@@ -52,12 +52,33 @@ marketing_task:
 
 finance_task:
   description: >
-    Generate financial projections and funding plans
+    Generate financial projections.
   expected_output: >
-    Startup financial model
+    Startup financial model.
   agent: finance_agent
   context:
     - marketing_task
+
+# finance_task:
+#   description: >
+#     # Use Python to calculate financial projections for the startup.
+#     # Define all variables before using them.
+
+#     # Create a simple financial model including:
+#     # - revenue
+#     # - expenses
+#     # - profit
+#     # - growth rate
+
+#     # Calculate projections for the next 3 years and suggest a funding plan.
+    
+  # expected_output: >
+  #   A financial projection including revenue, expenses, profit estimates,
+  #   and a recommended startup funding strategy.
+    
+  # agent: finance_agent
+  # context:
+  #   - marketing_task
 
 architecture_task:
   description: >
