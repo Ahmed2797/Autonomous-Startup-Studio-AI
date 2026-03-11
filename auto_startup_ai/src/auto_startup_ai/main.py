@@ -29,3 +29,14 @@ def run(query:str):
 
 if __name__ =='__main__':
     run()
+
+
+## Topic
+# Agriculture Harvesting Robots
+# AI Factory Monitoring System
+# AI agents for startup automation
+# AI Startup Studio
+# AI Healthcare Diagnostics
+# AI Customer Support Agents
+# Climate AI Analytics
+# AI SaaS for Small Businesses
