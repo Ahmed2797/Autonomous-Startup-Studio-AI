@@ -7,6 +7,8 @@ from crewai.tools import tool
 from crewai_tools import FileWriterTool, TavilySearchTool
 from langchain_experimental.utilities import PythonREPL
 from langchain_openai import ChatOpenAI
+from dotenv import load_dotenv
+load_dotenv()
 
 llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.5, api_key=os.getenv("OPENAI_API_KEY"))
 
