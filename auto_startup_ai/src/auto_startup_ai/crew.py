@@ -8,7 +8,7 @@ from crewai_tools import FileWriterTool, TavilySearchTool
 from langchain_experimental.utilities import PythonREPL
 from langchain_openai import ChatOpenAI
 
-llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.7, api_key=os.getenv("OPENAI_API_KEY"))
+llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.5, api_key=os.getenv("OPENAI_API_KEY"))
 
 os.environ["TAVILY_API_KEY"] = os.getenv("TAVILY_API_KEY")
 
